@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/src/assets/img/favicon.ico">
+    <!-- Load Require CSS -->
+    <link href="/src/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font CSS -->
+    <link href="/src/assets/css/boxicon.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <!-- Bootstrap -->
+    <script src="/src/assets/js/bootstrap.bundle.min.js"></script>
+    <!-- Load jQuery require for isotope -->
+    <script src="/src/assets/js/jquery.min.js"></script>
+    <!-- Isotope -->
+    <script src="/src/assets/js/isotope.pkgd.js"></script>
+    <!-- Page Script -->
+    <script>
+      $(window).load(function() {
+        // init Isotope
+        var $projects = $('.projects').isotope({
+          itemSelector: '.project',
+          layoutMode: 'fitRows'
+        });
+        $(".filter-btn").click(function() {
+          var data_filter = $(this).attr("data-filter");
+          $projects.isotope({
+            filter: data_filter
+          });
+          $(".filter-btn").removeClass("active");
+          $(".filter-btn").removeClass("shadow");
+          $(this).addClass("active");
+          $(this).addClass("shadow");
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>
